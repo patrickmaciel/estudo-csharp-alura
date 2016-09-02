@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using IAB.CaixaEletronico.Usuarios;
 
-namespace CaixaEletronico
+namespace IAB.CaixaEletronico.Contas
 {
-    class Conta
+    // Definindo a classe como abstrata você impede ela de ser instanciada
+    public abstract class Conta
     {
-        public int numero;
-        public Cliente titular;
-        public double saldo;
+        public int Numero { get; set; }
+        public Cliente Titular { get; set; }
+        public double Saldo { get; protected set; }
 
         //atributos agencias e cpf omitidos
 
@@ -18,28 +20,32 @@ namespace CaixaEletronico
         {
             if (valorASerDepositado >= 0)
             {
-                this.saldo += valorASerDepositado;
+                this.Saldo += valorASerDepositado;
             }
         }
 
-        public bool Saca(double valorASerSacado)
-        {
-            if (valorASerSacado > this.saldo || valorASerSacado < 0)
+        // Marcando um método como abstratado você força as classes filhas a instanciarem ele
+        public abstract void Saca(double valor);
+        // public abstract bool Saca(double valor);
+        /* public virtual void Saca(double valor);
+            // Inicio Código do curso 1 
+
+            if (valorASerSacado > this.Saldo || valorASerSacado < 0)
             {
                 return false;
             }
             else
             {
-                if (this.titular.EhMaiorDeIdade())
+                if (this.Titular.EhMaiorDeIdade())
                 {
-                    this.saldo -= valorASerSacado;
+                    this.Saldo -= valorASerSacado;
                     return true;
                 }
                 else
                 {
                     if (valorASerSacado <= 200)
                     {
-                        this.saldo -= valorASerSacado;
+                        this.Saldo -= valorASerSacado;
                         return true;
                     }
                     else
@@ -48,7 +54,9 @@ namespace CaixaEletronico
                     }
                 }
             }
-        }
+            
+            this.Saldo -= valor;
+        } */
 
         public void Transfere(double valor, Conta destino)
         {
@@ -58,14 +66,14 @@ namespace CaixaEletronico
 
         public double CalculaRendimentoAnual()
         {
-            double saldoNaqueleMes = this.saldo;
+            double saldoNaqueleMes = this.Saldo;
 
             for (int i = 0; i < 12; i++)
             {
                 saldoNaqueleMes = saldoNaqueleMes * 1.007;
             }
 
-            double rendimento = saldoNaqueleMes - this.saldo;
+            double rendimento = saldoNaqueleMes - this.Saldo;
 
             return rendimento;
         }
