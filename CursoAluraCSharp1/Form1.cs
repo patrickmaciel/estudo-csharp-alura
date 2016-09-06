@@ -172,6 +172,66 @@ namespace IAB.CaixaEletronico
             this.conta.Titular = new Cliente("Patrick Maciel");
             this.conta.Deposita(3284);
             saldoConta.Text = Convert.ToString(this.conta.Saldo);
+
+            /* 38% - tópicos avançados 
+            var contas = new List<Conta>();
+
+            var c3 = new ContaCorrente();
+            c3.Numero = 1;
+            c3.Titular = new Cliente("Patrick");
+
+            contas.Add(c3);
+            Conta copiaC1 = contas[0];
+
+            var c4 = new ContaCorrente();
+            c4.Numero = 2;
+            c4.Titular = new Cliente("Victor");
+
+            MessageBox.Show("Está lá: " + contas.Contains(c3));
+            MessageBox.Show("Esta lá: " + contas.Contains(c4));
+
+             * contas.Remove(object);
+             * contas.RemoveAt(index);
+             * contas.Count;
+            */
+
+            /* 47% - tópicos avançados
+            var contas = new HashSet<Conta>();
+
+            var c5 = new ContaCorrente();
+            c5.Numero = 1;
+            c5.Titular = new Cliente("Patrick");
+            
+            var c6 = new ContaCorrente();
+            c6.Numero = 2;
+            c6.Titular = new Cliente("Victor");
+
+            contas.Add(c5);
+            contas.Add(c6);
+
+            foreach (var c in contas)
+            {
+                MessageBox.Show(c.Titular.Nome);
+            }*/
+
+            /* 51% - tópicos avançados 
+            SortedSet<string> palavras = new SortedSet<string>();
+            palavras.Add("vida");
+            palavras.Add("furadeira");
+            palavras.Add("maçã");
+
+            foreach (var p in palavras)
+            {
+                MessageBox.Show(p);
+            }
+
+            Dictionary<string, string> nomeEPalavras = new Dictionary<string, string>();
+            nomeEPalavras.Add("Erich", "vida");
+            nomeEPalavras.Add("Alberto", "delicia");
+            MessageBox.Show(nomeEPalavras["Erich"]);
+            */
+
+
         }
 
         private void comboContas_SelectedIndexChanged(object sender, EventArgs e)
