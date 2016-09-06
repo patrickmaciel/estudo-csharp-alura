@@ -231,6 +231,41 @@ namespace IAB.CaixaEletronico
             MessageBox.Show(nomeEPalavras["Erich"]);
             */
 
+            /* 59% - Tópicos avançados 
+            string nome = "Meu nome é Patrick";
+            MessageBox.Show(nome);
+
+            string nome2 = "Meu nome é " + "Patrick";
+            MessageBox.Show(nome2);
+
+            int idade = 27;
+            string mensagem = "Minha idade é " + idade;
+            MessageBox.Show(mensagem);
+
+            int altura = 170;
+            string nome3 = "Fulano";
+            string mensagem2 = string.Format("{0} tem {1} de altura", nome3, altura);
+            MessageBox.Show(mensagem2);
+
+            string texto = "patrick,27,uberlandia";
+            string[] partes = texto.Split(',');
+            foreach (string parte in partes)
+            {
+                MessageBox.Show(parte);
+            }
+
+            string curso = "fn11";
+            curso = curso.ToUpper().Replace("1", "2");
+            MessageBox.Show(curso);
+
+            string nomeCompleto = "Patrick Maciel";
+            string primeiroNome = nomeCompleto.Substring(0, 8);
+            MessageBox.Show(primeiroNome);
+
+            int posicaoDoS = nomeCompleto.IndexOf("M");
+            string segundoNome = nomeCompleto.Substring(posicaoDoS);
+            MessageBox.Show(segundoNome);
+            */
 
         }
 
