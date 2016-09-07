@@ -267,6 +267,33 @@ namespace IAB.CaixaEletronico
             MessageBox.Show(segundoNome);
             */
 
+            /* 76% - Tópicos avançados */
+            var contas = new List<Conta>();
+            contas.Add(ContaComSaldo(2300));
+            contas.Add(ContaComSaldo(1000));
+            contas.Add(ContaComSaldo(2500));
+
+            //var filtradas = new List<Conta>();
+            //foreach (var c in contas)
+            //{
+            //    if (c.Saldo > 2000)
+            //    {
+            //        filtradas.Add(c);
+            //    }
+            //}
+            var filtradas = from c in contas
+                            where c.Saldo > 2000
+                            select c;
+
+            foreach (Conta c in filtradas)
+            {
+                MessageBox.Show("O saldo é " + c.Saldo);
+            }
+
+            double saldoTotal = filtradas.Sum(c => c.Saldo);
+            MessageBox.Show("O saldo total é " + saldoTotal);
+
+
         }
 
         private void comboContas_SelectedIndexChanged(object sender, EventArgs e)
@@ -359,6 +386,15 @@ namespace IAB.CaixaEletronico
             // comboContas.Refresh();
             //comboContas.EndUpdate();
             // MessageBox.Show(selecionada.Titular.Nome);
+        }
+
+        private Conta ContaComSaldo(double saldo)
+        {
+            Conta c = new ContaCorrente();
+            c.Numero = 1;
+            c.Titular = new Cliente("Patrick " + saldo.ToString());
+            c.Deposita(saldo);
+            return c;
         }
     }
 }
