@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using IAB.CaixaEletronico.Usuarios;
 using IAB.CaixaEletronico.Contas;
+using IAB.CaixaEletronico;
 
 namespace IAB.CaixaEletronico
 {
@@ -267,7 +268,7 @@ namespace IAB.CaixaEletronico
             MessageBox.Show(segundoNome);
             */
 
-            /* 76% - Tópicos avançados */
+            /* 76% - Tópicos avançados 
             var contas = new List<Conta>();
             contas.Add(ContaComSaldo(2300));
             contas.Add(ContaComSaldo(1000));
@@ -292,7 +293,11 @@ namespace IAB.CaixaEletronico
 
             double saldoTotal = filtradas.Sum(c => c.Saldo);
             MessageBox.Show("O saldo total é " + saldoTotal);
+            */
 
+            /* 88% - Tópicos avançados 
+            //MessageBox.Show(StringUtils.Pluralize("Conta"));
+            MessageBox.Show("Conta".Pluralize()); */
 
         }
 
